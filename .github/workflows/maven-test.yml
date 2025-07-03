@@ -21,6 +21,8 @@ jobs:
           pwd
           ls -al
           mvn surefire-report:report
+          ls -al target/reports/
+          
 
       - name: Disable Jekyll
         run: touch target/reports/.nojekyll
