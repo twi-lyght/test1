@@ -18,10 +18,10 @@ jobs:
 
       - name: Generate Surefire HTML Report
         run: |
-          pwd
-          ls -al
+#          pwd
+#          ls -al
           mvn surefire-report:report
-          ls -al target/reports/
+#          ls -al target/reports/
           
 
       - name: Disable Jekyll
@@ -34,3 +34,10 @@ jobs:
 #          path: ./target/reports
           publish_dir: ./target/reports
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Add summary to workflow
+        run: |
+          echo "## ✅ Reports Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- 🧪 [Surefire Test Report](https://twi-lyght.github.io/test1/test/surefire.html)" >> $GITHUB_STEP_SUMMARY
+          echo "- 📊 [JaCoCo Coverage](https://twi-lyght.github.io/test1/jacoco/index.html)" >> $GITHUB_STEP_SUMMARY
+          echo "- 🔍 [SonarQube Dashboard](https://sonarcloud.io/dashboard?id=your-project-key)" >> $GITHUB_STEP_SUMMARY

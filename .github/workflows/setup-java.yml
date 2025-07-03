@@ -32,7 +32,7 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-            
+
 #      - name: Run tests
 #        if: ${{ inputs.run-tests }}
 #        run: mvn test
