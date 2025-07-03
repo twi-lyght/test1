@@ -1,0 +1,26 @@
+name: Maven Test
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate Surefire HTML Report
+        run: |
+          pwd
+          ls -al
+          mvn surefire-report:report
+
+      - name: Upload Surefire HTML Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-report
+          path: target/site/surefire-report.html

@@ -1,0 +1,30 @@
+# .github/workflows/setup-java.yml
+name: Setup Java
+
+on:
+  workflow_call:  # makes it reusable
+    inputs:
+      run-tests:
+        type: boolean
+        default: false
+      cache:
+        required: false
+        type: string
+        default: 'maven'
+
+jobs:
+  setup-java:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'corretto'
+          cache: ${{ inputs.cache }}
+          server-id: artifactory-ext # Value of the distributionManagement/repository/id field of the pom.xml
+          settings-path: ${{ github.workspace }} # location for the settings.xml file
+
+#      - name: Run tests
+#        if: ${{ inputs.run-tests }}
+#        run: mvn test
