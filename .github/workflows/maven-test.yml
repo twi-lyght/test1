@@ -31,5 +31,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           name: surefire-report
-          path: ./target/reports
+#          path: ./target/reports
+          publish_dir: ./target/reports
           github_token: ${{ secrets.GITHUB_TOKEN }}
