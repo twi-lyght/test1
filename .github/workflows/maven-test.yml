@@ -19,6 +19,9 @@ jobs:
           ls -al
           mvn surefire-report:report
 
+      - name: Disable Jekyll
+        run: touch target/site/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
