@@ -27,3 +27,4 @@ jobs:
         with:
           name: surefire-report
           path: ./target/reports
+          github_token: ${{ secrets.GITHUB_TOKEN }}
