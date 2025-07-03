@@ -19,8 +19,8 @@ jobs:
           ls -al
           mvn surefire-report:report
 
-      - name: Upload Surefire HTML Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: surefire-report
-          path: target/site/surefire-report.html
+#      - name: Upload Surefire HTML Report
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: surefire-report
+#          path: target/site/surefire-report.html
