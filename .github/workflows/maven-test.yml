@@ -18,10 +18,7 @@ jobs:
 
       - name: Generate Surefire HTML Report
         run: |
-#          pwd
-#          ls -al
           mvn surefire-report:report
-#          ls -al target/reports/
           
 
       - name: Disable Jekyll
